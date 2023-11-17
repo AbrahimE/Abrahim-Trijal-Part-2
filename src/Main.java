@@ -11,6 +11,7 @@ public class Main implements Callable<Integer> {
         int end = numbersPerThread;
         int count = 0;
 
+        long startTime = System.currentTimeMillis();
 
         for(int i = 0; i<10; i++)
         {
@@ -30,10 +31,12 @@ public class Main implements Callable<Integer> {
                 e.printStackTrace();
             }
         }
-        
+
+        long endTime = System.currentTimeMillis()-startTime;
+        double time = endTime/1000.0;
 
         System.out.println("Total count between 1 and 100,000,000: " + count);
-
+        System.out.println("Total time passed: " + time + " seconds");
 
         executor.shutdown();
 
